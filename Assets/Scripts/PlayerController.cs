@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius = 0.08f;
     public LayerMask groundLayer;
+
+    public int maxJumps = 1;
+    private int jumpsLeft;
+    
     
     Rigidbody2D rb;
     SpriteRenderer sr;
@@ -33,17 +37,30 @@ public class PlayerController : MonoBehaviour
         //bool isGrounded = true;
         bool isGrounded = groundCheck && Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        if (jumpRequested && isGrounded)
+        if (isGrounded) jumpsLeft = maxJumps;
+        
+        if (jumpRequested)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            if (isGrounded) DoJump();
+            else if (jumpsLeft > 0)
+            {
+                DoJump();
+                jumpsLeft--;
+            }
         }
+        
         jumpRequested = false;
 
         if (moveX > 0.01f)
             sr.flipX = false;
         else if (moveX < -0.01f)
             sr.flipX = true;
+    }
+
+    void DoJump()
+    {
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
     public void OnMove(InputAction.CallbackContext ctx)
