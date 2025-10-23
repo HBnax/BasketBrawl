@@ -12,13 +12,15 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     
     Rigidbody2D rb;
+    SpriteRenderer sr;
     float moveX;
     bool jumpRequested;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        sr = GetComponent<SpriteRenderer>();
+        
         rb.freezeRotation = true;
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
@@ -37,6 +39,11 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
         jumpRequested = false;
+
+        if (moveX > 0.01f)
+            sr.flipX = false;
+        else if (moveX < -0.01f)
+            sr.flipX = true;
     }
 
     public void OnMove(InputAction.CallbackContext ctx)
