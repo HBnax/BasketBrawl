@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 8f;
 
     public Transform groundCheck;
+    public Transform headCheck;
     public float groundCheckRadius = 0.08f;
     public LayerMask groundLayer;
 
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = new Vector2(moveX * moveSpeed, rb.linearVelocity.y);
 
         //bool isGrounded = true;
-        bool isGrounded = groundCheck && Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        bool isGrounded = (groundCheck || headCheck)&& Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         if (isGrounded) jumpsLeft = maxJumps;
         

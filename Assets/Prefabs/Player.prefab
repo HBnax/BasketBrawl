@@ -187,6 +187,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  maxJumps: 1
 --- !u!114 &3372542949803764432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,8 +246,8 @@ MonoBehaviour:
     m_ActionId: 893bee49-0371-43cd-9d4e-4c0a1ed9ef3b
     m_ActionName: 'Player/Jump[/Keyboard/w,/Keyboard/upArrow]'
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard
-  m_DefaultActionMap: Player
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &7504442681909713377
