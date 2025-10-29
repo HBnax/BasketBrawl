@@ -11,7 +11,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: World
     uniqueID: 2897661087
+    locked: 0
+  - name: Ball
+    uniqueID: 450363029
     locked: 0
   - name: UI
     uniqueID: 4201197933
