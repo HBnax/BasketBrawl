@@ -401,7 +401,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Left: A or \u2190\nRight: D or \u2192\nJump: W or \u2191\nShoot: Tab or
-    R Shift"
+    ."
 --- !u!222 &204361129
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3342,7 +3342,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Left: A or \u2190\nRight: D or \u2192\nJump: W or \u2191\nShoot: Tab or
-    R Shift"
+    ."
 --- !u!222 &1459138582
 CanvasRenderer:
   m_ObjectHideFlags: 0
