@@ -11,11 +11,15 @@ public class PlayerController : MonoBehaviour
     public Transform playerCheck;
     public float groundCheckRadius = 0.08f;
     public LayerMask groundLayer;
-    public LayerMask playerLayer;
+    
 
     public int maxJumps = 1;
     private int jumpsLeft;
-    
+
+    public Transform holdPoint;
+    public bool hasBall;
+    public float throwSpeed = 7f;
+    public float throwUpwardForce = 3f;
     
     Rigidbody2D rb;
     SpriteRenderer sr;
@@ -36,12 +40,9 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(moveX * moveSpeed, rb.linearVelocity.y);
 
-        //bool isGrounded = true;
-        //bool onGround = isGrounded();
         bool isGrounded = (groundCheck || playerCheck)&& Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         
         if (isGrounded) jumpsLeft = maxJumps;
-        //if (onGround) jumpsLeft = maxJumps;
         
         if (jumpRequested)
         {
@@ -78,6 +79,21 @@ public class PlayerController : MonoBehaviour
         if (ctx.performed)
         {
             jumpRequested = true;
+        }
+    }
+
+    public void OnShoot(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed && hasBall){
+            float dirX = sr != null && sr.flipX ? -1f : 1f;
+            Vector2 impulse = new Vector2(dirX * throwSpeed, throwUpwardForce);
+            
+            var ball = FindFirstObjectByType<BallController>();
+            if (ball || ball.GetIsHeld() || ball.GetHolder() == this)
+            {
+                ball.ReleaseBall(impulse);
+                Debug.Log("Ball Thrown");
+            }
         }
     }
 

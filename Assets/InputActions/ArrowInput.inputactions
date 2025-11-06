@@ -23,6 +23,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "926d0be1-738a-47b6-958c-f5d537a42854",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -67,6 +76,17 @@
                     "processors": "",
                     "groups": ";Arrows",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a688ce06-a625-48b1-b842-8feb58b42fee",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Arrows",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

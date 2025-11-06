@@ -23,6 +23,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "4fe27119-7dc0-4f79-a0e3-795a7d72f04d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -67,6 +76,17 @@
                     "processors": "",
                     "groups": ";WASD",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d991f530-042c-4e87-ad07-c8caec847ec5",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";WASD",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
