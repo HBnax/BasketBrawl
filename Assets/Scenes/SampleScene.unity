@@ -1147,6 +1147,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531529720}
   m_CullTransparentMesh: 1
+--- !u!4 &556288306 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2773944886882833715, guid: ceeedefcf26004dca82f28f73e0a0adf, type: 3}
+  m_PrefabInstance: {fileID: 6806920460395055859}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &562903684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,7 +1937,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773944886882833715, guid: ceeedefcf26004dca82f28f73e0a0adf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773944886882833715, guid: ceeedefcf26004dca82f28f73e0a0adf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3372542949803764432, guid: ceeedefcf26004dca82f28f73e0a0adf, type: 3}
       propertyPath: m_Actions
@@ -2113,7 +2122,7 @@ PrefabInstance:
     - target: {fileID: 4197988457492120867, guid: ceeedefcf26004dca82f28f73e0a0adf, type: 3}
       propertyPath: holdPoint
       value: 
-      objectReference: {fileID: 901570725}
+      objectReference: {fileID: 1715241197}
     - target: {fileID: 4197988457492120867, guid: ceeedefcf26004dca82f28f73e0a0adf, type: 3}
       propertyPath: playerCheck
       value: 
@@ -3426,6 +3435,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620241426}
   m_CullTransparentMesh: 1
+--- !u!4 &1715241197 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2773944886882833715, guid: ceeedefcf26004dca82f28f73e0a0adf, type: 3}
+  m_PrefabInstance: {fileID: 901570724}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1747709075
 GameObject:
   m_ObjectHideFlags: 0
@@ -4271,7 +4285,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  pickupCooldown: 0.1
+  pickupCooldown: 0.05
 --- !u!1 &2069406854
 GameObject:
   m_ObjectHideFlags: 0
@@ -4570,7 +4584,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773944886882833715, guid: ceeedefcf26004dca82f28f73e0a0adf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773944886882833715, guid: ceeedefcf26004dca82f28f73e0a0adf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3372542949803764432, guid: ceeedefcf26004dca82f28f73e0a0adf, type: 3}
       propertyPath: m_DefaultActionMap
@@ -4639,7 +4657,7 @@ PrefabInstance:
     - target: {fileID: 4197988457492120867, guid: ceeedefcf26004dca82f28f73e0a0adf, type: 3}
       propertyPath: holdPoint
       value: 
-      objectReference: {fileID: 1406465587}
+      objectReference: {fileID: 556288306}
     - target: {fileID: 4197988457492120867, guid: ceeedefcf26004dca82f28f73e0a0adf, type: 3}
       propertyPath: playerCheck
       value: 

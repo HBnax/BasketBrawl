@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private int jumpsLeft;
 
     public Transform holdPoint;
+    public float holdPointOffsetX = 2f;
+    private float currDirection = 1f;
     public bool hasBall;
     public float throwSpeed = 7f;
     public float throwUpwardForce = 3f;
@@ -56,10 +58,7 @@ public class PlayerController : MonoBehaviour
         
         jumpRequested = false;
 
-        if (moveX > 0.01f)
-            sr.flipX = false;
-        else if (moveX < -0.01f)
-            sr.flipX = true;
+        UpdateDirection();
     }
 
     void DoJump()
@@ -85,7 +84,7 @@ public class PlayerController : MonoBehaviour
     public void OnShoot(InputAction.CallbackContext ctx)
     {
         if (ctx.performed && hasBall){
-            float dirX = sr != null && sr.flipX ? -1f : 1f;
+            float dirX = sr.flipX ? -1f : 1f;
             Vector2 impulse = new Vector2(dirX * throwSpeed, throwUpwardForce);
             
             var ball = FindFirstObjectByType<BallController>();
@@ -95,6 +94,27 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Ball Thrown");
             }
         }
+    }
+
+    void UpdateDirection()
+    {
+        if (moveX > 0.01f)
+        {
+            sr.flipX = false;
+            currDirection = 1f;
+        }
+        else if (moveX < -0.01f)
+        {
+            sr.flipX = true;
+            currDirection = -1f;
+        }
+
+        SetHoldPoint(currDirection);
+    }
+
+    void SetHoldPoint(float direction)
+    {
+        holdPoint.localPosition = new Vector2(holdPointOffsetX * direction, -1);
     }
 
     private void OnDrawGizmosSelected()
