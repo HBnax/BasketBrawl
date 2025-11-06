@@ -4271,7 +4271,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  pickupCooldown: 0.05
+  pickupCooldown: 0.1
 --- !u!1 &2069406854
 GameObject:
   m_ObjectHideFlags: 0
@@ -4486,7 +4486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5319976147632804627, guid: cb5fa391f11b9498c8dc8029a7b230a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5319976147632804627, guid: cb5fa391f11b9498c8dc8029a7b230a9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4650,7 +4650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8127381687758108269, guid: ceeedefcf26004dca82f28f73e0a0adf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 8127381687758108269, guid: ceeedefcf26004dca82f28f73e0a0adf, type: 3}
       propertyPath: m_LocalPosition.y

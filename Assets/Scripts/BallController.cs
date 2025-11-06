@@ -12,7 +12,7 @@ public class BallController : MonoBehaviour
 
     private Rigidbody2D rb;
     private Collider2D col;
-    private float lastReleaseTime = 999f;
+    private float lastReleaseTime = -999f;
 
     void Awake()
     {
@@ -28,7 +28,7 @@ public class BallController : MonoBehaviour
     {
         if (IsHeld && Holder && Holder.holdPoint)
         {
-            rb.position = Holder.holdPoint.position;
+            transform.position = Holder.holdPoint.position;
             rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0f;
         }
@@ -37,7 +37,7 @@ public class BallController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D c)
     {
         if (IsHeld) return;
-        
+        if (Time.time - lastReleaseTime < pickupCooldown) return;
         if (((1 << c.collider.gameObject.layer) & playerLayer) == 0) return;
 
         Debug.Log("Collided");
@@ -84,6 +84,8 @@ public class BallController : MonoBehaviour
         {
             rb.AddForce(impulse, ForceMode2D.Impulse);
         }
+        
+        Debug.Log("Released");
     }
 
     public bool GetIsHeld()
