@@ -50,6 +50,9 @@ TagManager:
   - name: Ball
     uniqueID: 450363029
     locked: 0
+  - name: Rim
+    uniqueID: 827321027
+    locked: 0
   - name: UI
     uniqueID: 4201197933
     locked: 0
