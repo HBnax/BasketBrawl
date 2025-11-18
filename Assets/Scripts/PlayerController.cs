@@ -95,7 +95,6 @@ public class PlayerController : MonoBehaviour
             if (ball || ball.GetIsHeld() || ball.GetHolder() == this)
             {
                 ball.ReleaseBall(impulse);
-                Debug.Log("Ball Thrown");
             }
         }
     }

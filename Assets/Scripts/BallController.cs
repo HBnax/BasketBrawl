@@ -39,22 +39,15 @@ public class BallController : MonoBehaviour
         if (IsHeld) return;
         if (Time.time - lastReleaseTime < pickupCooldown) return;
         if (((1 << c.collider.gameObject.layer) & playerLayer) == 0) return;
-
-        Debug.Log("Collided");
         
         var player = c.collider.GetComponentInParent<PlayerController>();
         if (player == null || player.hasBall || player.holdPoint == null) return;
 
-        bool ballPickedUp = CanPickup(player);
-        if (ballPickedUp)
-        {
-            Debug.Log("Picked Up");
-        }
+        CanPickup(player);
     }
 
     bool CanPickup(PlayerController player)
     {
-        Debug.Log("Checking Pickup");
         if (IsHeld || player == null || player.hasBall) return false;
 
         IsHeld = true;
@@ -85,7 +78,6 @@ public class BallController : MonoBehaviour
             rb.AddForce(impulse, ForceMode2D.Impulse);
         }
         
-        Debug.Log("Released");
     }
 
     public bool GetIsHeld()
