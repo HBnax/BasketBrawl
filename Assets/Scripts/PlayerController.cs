@@ -42,22 +42,26 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(moveX * moveSpeed, rb.linearVelocity.y);
 
-        bool isGrounded = (groundCheck || playerCheck)&& Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         
-        if (isGrounded) jumpsLeft = maxJumps;
+        //bool isGrounded = (groundCheck || playerCheck)&& Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        
+        //if (isGrounded) jumpsLeft = maxJumps;
         
         if (jumpRequested)
         {
+            /*
             if (isGrounded) DoJump();
             else if (jumpsLeft > 0)
             {
                 DoJump();
                 jumpsLeft--;
             }
+            */
+            DoJump();
         }
         
         jumpRequested = false;
-
+        
         UpdateDirection();
     }
 
