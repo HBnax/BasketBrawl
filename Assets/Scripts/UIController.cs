@@ -9,8 +9,12 @@ public class UIController : MonoBehaviour
     public GameObject gameScreenPanel;
     public GameObject controlsPanel;
     public GameObject pausePanel;
+    public GameObject gameOverPanel;
 
     public PlayerInput[] players;
+    
+    //public MatchTimer matchTimer;
+    public ScoreController scoreController;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -19,8 +23,12 @@ public class UIController : MonoBehaviour
         SetActive(gameScreenPanel, false);
         SetActive(controlsPanel, false);
         SetActive(pausePanel, false);
+        SetActive(gameOverPanel, false);
 
         EnablePlayers(false);
+        
+        //if (matchTimer) matchTimer.OnEnded -= HandleTimeUp;
+        if (scoreController) scoreController.OnGameOver -= HandleGameOver;
     }
 
     public void OnClickStart()
@@ -29,8 +37,13 @@ public class UIController : MonoBehaviour
         SetActive(gameScreenPanel, true);
         SetActive(controlsPanel, false);
         SetActive(pausePanel, false);
-
+        SetActive(gameOverPanel, false);
+        
         EnablePlayers(true);
+
+        Time.timeScale = 1f;
+        //matchTimer?.StartTimer();
+        scoreController?.ResetScores();
     }
 
     public void OnClickOpenControls()
@@ -39,6 +52,7 @@ public class UIController : MonoBehaviour
         SetActive(gameScreenPanel, false);
         SetActive(controlsPanel, true);
         SetActive(pausePanel, false);
+        SetActive(gameOverPanel, false);
 
         EnablePlayers(false);
     }
@@ -49,6 +63,7 @@ public class UIController : MonoBehaviour
         SetActive(gameScreenPanel,false);
         SetActive(controlsPanel, false);
         SetActive(pausePanel, false);
+        SetActive(gameOverPanel, false);
         
         EnablePlayers(false);
     }
@@ -58,6 +73,7 @@ public class UIController : MonoBehaviour
         SetActive(pausePanel, true);
         EnablePlayers(false);
         Time.timeScale = 0f;
+        //matchTimer?.Pause();
     }
 
     public void OnClickResume()
@@ -65,6 +81,7 @@ public class UIController : MonoBehaviour
         SetActive(pausePanel, false);
         EnablePlayers(true);
         Time.timeScale = 1f;
+        //matchTimer?.Resume();
     }
     public void OnClickExit()
     {
@@ -72,6 +89,18 @@ public class UIController : MonoBehaviour
         Application.Quit();
     }
 
+    void HandleTimeUp()
+    {
+        scoreController?.EndGame();
+    }
+
+    void HandleGameOver(ScoreController.Team? winner)
+    {
+        Time.timeScale = 0f; 
+        EnablePlayers(false);
+        SetActive(gameOverPanel, true);
+    }
+    
     void SetActive(GameObject go, bool isActive)
     {
         if (go) go.SetActive(isActive);
