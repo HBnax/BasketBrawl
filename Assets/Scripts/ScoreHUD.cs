@@ -7,7 +7,7 @@ public class Score : MonoBehaviour
     public ScoreController score;
     public Text team1ScoreText, team2ScoreText;
 
-    void OnEnable()
+    private void OnEnable()
     {
         if (!score) return;
         score.OnScoreChanged += HandleScoreChanged;

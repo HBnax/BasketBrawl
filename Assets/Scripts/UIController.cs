@@ -13,7 +13,7 @@ public class UIController : MonoBehaviour
 
     public PlayerInput[] players;
     
-    //public MatchTimer matchTimer;
+    public TimerController timerController;
     public ScoreController scoreController;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,8 +26,17 @@ public class UIController : MonoBehaviour
         SetActive(gameOverPanel, false);
 
         EnablePlayers(false);
-        
-        //if (matchTimer) matchTimer.OnEnded -= HandleTimeUp;
+    }
+
+    private void OnEnable()
+    {
+        if (timerController) timerController.OnTimerEnd += HandleTimeUp;
+        if (scoreController) scoreController.OnGameOver += HandleGameOver;
+    }
+
+    private void OnDisable()
+    {
+        if (timerController) timerController.OnTimerEnd -= HandleTimeUp;
         if (scoreController) scoreController.OnGameOver -= HandleGameOver;
     }
 
@@ -42,8 +51,10 @@ public class UIController : MonoBehaviour
         EnablePlayers(true);
 
         Time.timeScale = 1f;
-        //matchTimer?.StartTimer();
         scoreController?.ResetScores();
+        Debug.Log("Starting Timer from UIController");
+        timerController?.StartTimer();
+        
     }
 
     public void OnClickOpenControls()
@@ -73,7 +84,7 @@ public class UIController : MonoBehaviour
         SetActive(pausePanel, true);
         EnablePlayers(false);
         Time.timeScale = 0f;
-        //matchTimer?.Pause();
+        timerController?.PauseTimer();
     }
 
     public void OnClickResume()
@@ -81,7 +92,7 @@ public class UIController : MonoBehaviour
         SetActive(pausePanel, false);
         EnablePlayers(true);
         Time.timeScale = 1f;
-        //matchTimer?.Resume();
+        timerController?.ResumeTimer();
     }
     public void OnClickExit()
     {
