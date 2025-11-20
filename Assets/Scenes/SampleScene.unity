@@ -330,11 +330,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87672150}
   m_CullTransparentMesh: 1
+--- !u!1 &151080332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8110651273919705142, guid: efbf4e604cc2a43f499b47e1042185a8, type: 3}
+  m_PrefabInstance: {fileID: 865161174}
+  m_PrefabAsset: {fileID: 0}
 --- !u!61 &151080334 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 6924010648728344372, guid: efbf4e604cc2a43f499b47e1042185a8, type: 3}
   m_PrefabInstance: {fileID: 865161174}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &151080335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151080332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f544727544ab34f6f903e696084f3e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RimLineTrigger
+  hoop: {fileID: 1452881595}
 --- !u!1 &204361126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,11 +1090,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463384798}
   m_CullTransparentMesh: 1
+--- !u!1 &507470731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 39539305980593465, guid: efbf4e604cc2a43f499b47e1042185a8, type: 3}
+  m_PrefabInstance: {fileID: 865161174}
+  m_PrefabAsset: {fileID: 0}
 --- !u!61 &507470733 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 8823432286120372432, guid: efbf4e604cc2a43f499b47e1042185a8, type: 3}
   m_PrefabInstance: {fileID: 865161174}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &507470734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507470731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b350244529bd7436e93a2c25f575334b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NetTrigger
+  hoop: {fileID: 1452881595}
 --- !u!1 &531529720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2048,6 +2084,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4795838588772447016, guid: efbf4e604cc2a43f499b47e1042185a8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1452881595}
+    - targetCorrespondingSourceObject: {fileID: 8110651273919705142, guid: efbf4e604cc2a43f499b47e1042185a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 151080335}
+    - targetCorrespondingSourceObject: {fileID: 39539305980593465, guid: efbf4e604cc2a43f499b47e1042185a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 507470734}
   m_SourcePrefab: {fileID: 100100000, guid: efbf4e604cc2a43f499b47e1042185a8, type: 3}
 --- !u!224 &865161175 stripped
 RectTransform:
@@ -3576,11 +3618,29 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1728537578546104376, guid: cb5fa391f11b9498c8dc8029a7b230a9, type: 3}
   m_PrefabInstance: {fileID: 5318699945810041907}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1585387568 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8110651273919705142, guid: efbf4e604cc2a43f499b47e1042185a8, type: 3}
+  m_PrefabInstance: {fileID: 7514975137032626853}
+  m_PrefabAsset: {fileID: 0}
 --- !u!61 &1585387570 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 6924010648728344372, guid: efbf4e604cc2a43f499b47e1042185a8, type: 3}
   m_PrefabInstance: {fileID: 7514975137032626853}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1585387571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585387568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f544727544ab34f6f903e696084f3e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RimLineTrigger
+  hoop: {fileID: 1980985142}
 --- !u!1 &1620241426
 GameObject:
   m_ObjectHideFlags: 0
@@ -3910,11 +3970,29 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1889890227 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 39539305980593465, guid: efbf4e604cc2a43f499b47e1042185a8, type: 3}
+  m_PrefabInstance: {fileID: 7514975137032626853}
+  m_PrefabAsset: {fileID: 0}
 --- !u!61 &1889890229 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 8823432286120372432, guid: efbf4e604cc2a43f499b47e1042185a8, type: 3}
   m_PrefabInstance: {fileID: 7514975137032626853}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1889890230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889890227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b350244529bd7436e93a2c25f575334b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NetTrigger
+  hoop: {fileID: 1980985142}
 --- !u!1 &1942372825
 GameObject:
   m_ObjectHideFlags: 0
@@ -5202,6 +5280,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4795838588772447016, guid: efbf4e604cc2a43f499b47e1042185a8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1980985142}
+    - targetCorrespondingSourceObject: {fileID: 8110651273919705142, guid: efbf4e604cc2a43f499b47e1042185a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1585387571}
+    - targetCorrespondingSourceObject: {fileID: 39539305980593465, guid: efbf4e604cc2a43f499b47e1042185a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1889890230}
   m_SourcePrefab: {fileID: 100100000, guid: efbf4e604cc2a43f499b47e1042185a8, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
