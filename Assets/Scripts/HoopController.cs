@@ -6,8 +6,6 @@ public class HoopController : MonoBehaviour
     public ScoreController scoreController;
     public ScoreController.Team pointsAwardedTo;
     
-    public BoxCollider2D rimLineSensor;
-    public BoxCollider2D netSensor;
     public Rigidbody2D ball;
     
     
@@ -39,11 +37,9 @@ public class HoopController : MonoBehaviour
     {
         var rb = obj.attachedRigidbody;
         if (rb != ball) return;
-
-        if (crossedDown)
-        {
-            scoreController.AddPoint(pointsAwardedTo);
-            crossedDown = false;
-        }
+        if (!crossedDown) return;
+        
+        scoreController.AddPoint(pointsAwardedTo);
+        crossedDown = false;
     }
 }
