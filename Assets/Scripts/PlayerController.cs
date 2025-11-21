@@ -8,12 +8,8 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 8f;
 
     public Transform groundCheck;
-    public Transform playerCheck;
     public float groundCheckRadius = 0.08f;
-    public LayerMask groundLayer;
-    
 
-    public int maxJumps = 1;
     private int jumpsLeft;
 
     public Transform holdPoint;
@@ -41,22 +37,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(moveX * moveSpeed, rb.linearVelocity.y);
-
-        
-        //bool isGrounded = (groundCheck || playerCheck)&& Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        
-        //if (isGrounded) jumpsLeft = maxJumps;
-        
         if (jumpRequested)
         {
-            /*
-            if (isGrounded) DoJump();
-            else if (jumpsLeft > 0)
-            {
-                DoJump();
-                jumpsLeft--;
-            }
-            */
             DoJump();
         }
         

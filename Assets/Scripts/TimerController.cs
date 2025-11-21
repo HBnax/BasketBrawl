@@ -38,6 +38,7 @@ public class TimerController : MonoBehaviour
         StopTimer();
         remainingTime = matchDuration;
         OnTick?.Invoke(remainingTime);
+        Debug.Log("Reset Timer");
     }
 
     public void StopTimer()

@@ -54,6 +54,7 @@ public class ScoreController : MonoBehaviour
         team1Score = 0;
         team2Score = 0;
         OnScoreChanged?.Invoke(Team.Team1, team1Score, team2Score);
+        Debug.Log("Reset Scores");
     }
     
     public int GetTeam1Score()
