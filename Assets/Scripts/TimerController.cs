@@ -22,7 +22,6 @@ public class TimerController : MonoBehaviour
 
     public void StartTimer()
     {
-        Debug.Log("TimerStarted");
         StopTimer();
         remainingTime = matchDuration;
         isTimerRunning = true;
@@ -89,7 +88,6 @@ public class TimerController : MonoBehaviour
                     yield break;
                 }
                 OnTick?.Invoke(remainingTime);
-                Debug.Log("Remaining Time: " + remainingTime);
             }
             yield return null;
         }

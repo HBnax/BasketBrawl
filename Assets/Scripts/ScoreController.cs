@@ -6,6 +6,8 @@ public class ScoreController : MonoBehaviour
 
     private int team1Score, team2Score;
     private bool isGameOver;
+    private Team? winner;
+    
 
     public event System.Action<Team, int, int> OnScoreChanged;
     public event System.Action<Team?> OnGameOver;
@@ -29,8 +31,7 @@ public class ScoreController : MonoBehaviour
     {
         if (isGameOver) return;
         isGameOver = true;
-
-        Team? winner = null;
+        
         if (team1Score > team2Score)
         {
             winner = Team.Team1;
@@ -38,6 +39,10 @@ public class ScoreController : MonoBehaviour
         else if (team2Score > team1Score)
         {
             winner = Team.Team2;
+        }
+        else
+        {
+            winner = null;
         }
         
         OnGameOver?.Invoke(winner);
@@ -64,6 +69,11 @@ public class ScoreController : MonoBehaviour
     public bool GetIsGameOver()
     {
         return isGameOver;
+    }
+    
+    public Team? GetWinner()
+    {
+        return winner;
     }
 }
 

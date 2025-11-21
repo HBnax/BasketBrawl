@@ -16,7 +16,6 @@ public class UIController : MonoBehaviour
     public TimerController timerController;
     public ScoreController scoreController;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         SetActive(startScreenPanel, true);
@@ -52,7 +51,6 @@ public class UIController : MonoBehaviour
 
         Time.timeScale = 1f;
         scoreController?.ResetScores();
-        Debug.Log("Starting Timer from UIController");
         timerController?.StartTimer();
         
     }

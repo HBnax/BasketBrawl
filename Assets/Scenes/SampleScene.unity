@@ -5291,7 +5291,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1146663487}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: OnClickExit
+        m_MethodName: OnClickCloseControls
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
