@@ -13,6 +13,7 @@ public class UIController : MonoBehaviour
 
     public PlayerInput[] players;
     
+    public MatchController matchController;
     public TimerController timerController;
     public ScoreController scoreController;
     
@@ -49,10 +50,7 @@ public class UIController : MonoBehaviour
         
         EnablePlayers(true);
 
-        Time.timeScale = 1f;
-        scoreController?.ResetScores();
-        timerController?.StartTimer();
-        
+        matchController?.StartMatch();
     }
 
     public void OnClickOpenControls()
@@ -92,6 +90,7 @@ public class UIController : MonoBehaviour
         Time.timeScale = 1f;
         timerController?.ResumeTimer();
     }
+
     public void OnClickExit()
     {
         Debug.Log("Exit Game");
@@ -115,7 +114,7 @@ public class UIController : MonoBehaviour
         if (go) go.SetActive(isActive);
     }
 
-    void EnablePlayers(bool isEnabled)
+    public void EnablePlayers(bool isEnabled)
     {
         if (players == null) return;
 

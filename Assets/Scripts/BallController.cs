@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
 
@@ -7,12 +8,14 @@ public class BallController : MonoBehaviour
     public LayerMask playerLayer;
     public float pickupCooldown = 0.05f;
 
-    private bool IsHeld;
-    private PlayerController Holder;
+    private bool isHeld;
+    private PlayerController holder;
 
     private Rigidbody2D rb;
     private Collider2D col;
     private float lastReleaseTime = -999f;
+    private Vector2 pendingSpawnPos;
+    private bool applySpawnNextFixed;
 
     void Awake()
     {
@@ -26,9 +29,9 @@ public class BallController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (IsHeld && Holder && Holder.holdPoint)
+        if (isHeld && holder && holder.holdPoint)
         {
-            transform.position = Holder.holdPoint.position;
+            transform.position = holder.holdPoint.position;
             rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0f;
         }
@@ -36,7 +39,7 @@ public class BallController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D c)
     {
-        if (IsHeld) return;
+        if (isHeld) return;
         if (Time.time - lastReleaseTime < pickupCooldown) return;
         if (((1 << c.collider.gameObject.layer) & playerLayer) == 0) return;
         
@@ -48,26 +51,26 @@ public class BallController : MonoBehaviour
 
     bool CanPickup(PlayerController player)
     {
-        if (IsHeld || player == null || player.hasBall) return false;
+        if (isHeld || player == null || player.hasBall) return false;
 
-        IsHeld = true;
-        Holder = player;
-        Holder.hasBall = true;
+        isHeld = true;
+        holder = player;
+        holder.hasBall = true;
 
         rb.simulated = false;
         col.enabled = false;
         
-        transform.position = Holder.holdPoint.position;
+        transform.position = holder.holdPoint.position;
         return true;
     }
 
     public void ReleaseBall(Vector2 impulse)
     {
-        if (!IsHeld) return;
+        if (!isHeld) return;
         
-        IsHeld = false;
-        if (Holder) Holder.hasBall = false;
-        Holder = null;
+        isHeld = false;
+        if (holder) holder.hasBall = false;
+        holder = null;
         lastReleaseTime = Time.time;
 
         rb.simulated = true;
@@ -77,16 +80,53 @@ public class BallController : MonoBehaviour
         {
             rb.AddForce(impulse, ForceMode2D.Impulse);
         }
-        
     }
 
+    public void ResetToSpawn(Vector2 spawnPoint)
+    {
+        isHeld = false;
+        if (holder) holder.hasBall = false;
+        holder = null;
+
+        rb.simulated = false;
+        col.enabled = false;
+
+        pendingSpawnPos = spawnPoint;
+        applySpawnNextFixed = true;
+        
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        rb.position = pendingSpawnPos;
+        rb.rotation = 0f;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        
+        StartCoroutine(ReenableNextFixed());
+    }
+
+    private IEnumerator ReenableNextFixed()
+    {
+        var prevInterp = rb.interpolation;
+        rb.interpolation = RigidbodyInterpolation2D.None;
+        
+        rb.simulated = true;
+        col.enabled = true;
+
+        if (applySpawnNextFixed)
+        {
+            rb.position = pendingSpawnPos;
+            applySpawnNextFixed = false;
+        }
+
+        yield return new WaitForFixedUpdate();
+        rb.interpolation = prevInterp;
+    }
     public bool GetIsHeld()
     {
-        return IsHeld;
+        return isHeld;
     }
     
     public PlayerController GetHolder()
     {
-        return Holder;
+        return holder;
     }
 }
