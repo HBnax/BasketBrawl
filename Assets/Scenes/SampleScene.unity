@@ -4534,7 +4534,7 @@ MonoBehaviour:
   - {fileID: 1849897354}
   ball: {fileID: 2055016025}
   ballSpawn: {fileID: 1356495063}
-  matchDuration: 10
+  matchDuration: 60
 --- !u!4 &1617713755
 Transform:
   m_ObjectHideFlags: 0
@@ -4737,7 +4737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b242914739142a5be1e4fea10acc50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimerController
-  matchDuration: 10
+  matchDuration: 60
   useUnscaledTime: 0
 --- !u!4 &1679272602
 Transform:
